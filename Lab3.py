@@ -1,8 +1,6 @@
 import numpy as np
 import itertools 
 from sympy import Symbol
-from datetime import datetime
-startTime = datetime.now()
 
 #### Functions
 '''
@@ -61,12 +59,12 @@ def Enumerate_Polynomial(Code):
 Matrix = np.loadtxt("goley_24.txt", delimiter=',',dtype = int)
 k = Matrix.shape[0]
 n = Matrix.shape[1]
-q = Matrix.max() + 1
+q = int(input("Space (q) \n"))
 
 # Call of functions
 x = CreateX(q,k)
 C = Generate_C(x,q,n,Matrix)
-G_dual = Create_H(Matrix,q)
+#G_dual = Create_H(Matrix,q)
 f_sym = Enumerate_Polynomial(C)
 
 # Show in Terminal
@@ -76,12 +74,6 @@ print(Matrix)
 print(" ")
 print("The Code C is: \n")
 print(C)
-print(len(C))
-print(" ")
-print("The G' Matrix is: \n")
-print(G_dual)
 print(" ")
 print("The Polynomial weight enumerator is: \n")
 print(f_sym)
-print(" ")
-print(datetime.now() - startTime)
